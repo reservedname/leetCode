@@ -1,0 +1,9 @@
+﻿  easy.cpp
+h:\leetcode\easy\easy\easy.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+h:\leetcode\easy\easy\solution.h(87): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solution.h(94): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solution.h(103): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solution.h(119): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solution.h(161): warning C4715: “Solution4::isPalindrome”: 不是所有的控件路径都返回值
+  easy.vcxproj -> H:\leetcode\easy\Debug\easy.exe
+  easy.vcxproj -> H:\leetcode\easy\Debug\easy.pdb (Partial PDB)
