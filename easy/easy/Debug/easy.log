@@ -1,0 +1,16 @@
+﻿  easy.cpp
+h:\leetcode\easy\easy\easy.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+h:\leetcode\easy\easy\solve1.h(141): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(148): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(157): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(173): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(486): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(490): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(514): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(719): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(906): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(949): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(1020): warning C4018: “<”: 有符号/无符号不匹配
+h:\leetcode\easy\easy\solve1.h(1028): warning C4018: “<”: 有符号/无符号不匹配
+  easy.vcxproj -> H:\leetcode\easy\Debug\easy.exe
+  easy.vcxproj -> H:\leetcode\easy\Debug\easy.pdb (Partial PDB)
