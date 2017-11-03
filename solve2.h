@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-/***
+/**
  *
  * Given an array with n integers, your task is to check 
  * if it could become non-decreasing by modifying at most 1 element.
@@ -87,7 +87,7 @@ void cacu_chr_num(String* inputStr) {
 	cout << "一共有" << sum << "个不同的单词" << endl;
 }*/
 
-/***
+/**
  *
  * The set S originally contains numbers from 1 to n. But unfortunately, due to the data error,
  * one of the numbers in the set got duplicated to another number in the set, 
@@ -125,7 +125,7 @@ public:
 	}
 };
 
-/***
+/**
  *
  * Suppose you have a long flowerbed in which some of the plots are planted and some are not.
  * However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.
@@ -174,7 +174,7 @@ public:
 	}
 };
 
-/***
+/**
  *
  * You're now a baseball game point recorder.
  *
@@ -256,7 +256,7 @@ public:
 	}
 };
 
-/***
+/**
  *
  * Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
  *
@@ -386,7 +386,7 @@ public:
 	}
 };
 
-/***
+/**
  *
  * Given two strings A and B, find the minimum number of times A has to be repeated
  * such that B is a substring of it. If no such solution, return -1.
@@ -509,7 +509,7 @@ public:
 	}
 };
 
-/***
+/**
  *
  * Given a positive integer num, write a function which returns True if num is a perfect square else False.
  *
@@ -523,8 +523,9 @@ public:
  *
  * Input: 14
  * Returns: False
+ *
  */
-class Solution {
+class Solution27 {
 public:
 	bool isPerfectSquare(int num) {
 		if (num == 0 || num == 1) return true;
@@ -540,5 +541,181 @@ public:
 			mid = (p + q) / 2;
 		}
 		return false;
+	}
+};
+
+/**
+ * 
+ * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+ *
+ * For example:
+ * Given the below binary tree and sum = 22,
+ *             5
+ *            / \
+ *           4   8
+ *          /   / \
+ *         11  13  4
+ *        /  \      \
+ *       7    2      1
+ * return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+ *
+ */
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class UnSoluted {
+public:
+	bool findSum(TreeNode* root, int sum, int num) {
+		if (root == NULL) return num == sum;
+		int new_num = num + root->val;
+		if (findSum(root->left, sum, new_num) == true) return true;
+		else return findSum(root->right, sum, new_num);
+	}
+
+	bool hasPathSum(TreeNode* root, int sum) {
+		if (root == nullptr) return false;
+		return findSum(root, sum, 0);
+	}
+};
+
+/**
+ *
+ * Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+ *
+ * Example:
+ * Given num = 16, return true. Given num = 5, return false.
+ *
+ * Follow up: Could you solve it without loops/recursion?
+ */
+class Solution28 {
+public:
+	bool isPowerOfFour(int num) {
+		if (num < 0) return false;
+		double n = num;
+		if (n < 4) {
+			if (n == 1) return true;
+			return false;
+		}
+		while (n > 1) {
+			n /= 4;
+		}
+		if (n == 1) return true;
+		return false;
+	}
+};
+
+/**
+ *
+ * Count the number of segments in a string, where a segment is defined to be a 
+ * contiguous sequence of non-space characters.
+ *
+ * Please note that the string does not contain any non-printable characters.
+ * Example:
+ *
+ * Input: "Hello, my name is John"
+ * Output: 5
+ *
+ */
+class Solution29 {
+public:
+	int countSegments(string s) {
+		int length = s.size();
+		if (length == 1 && s[0] != ' ')return 1;
+		int count = 0;
+		int flag = 0;
+		for (int i = 0; i < length; i++)
+		{
+			if (s[i] == ' ' && flag) {
+				++count;
+			}
+			if (s[i] != ' ') flag = 1;
+			else flag = 0;
+		}
+		if (flag) ++count;
+		return count;
+	}
+};
+
+/**
+ *
+ * Given a positive 32-bit integer n, you need to find the smallest 32-bit integer which has exactly the same digits existing in the integer n and is greater in value than n. If no such positive 32-bit integer exists, you need to return -1.
+ *
+ * Example 1:
+ * Input: 12
+ * Output: 21
+ * Example 2:
+ * Input: 21
+ * Output: -1
+ *
+ */
+class Solution {
+public:
+	bool isLimited(int a[], int n) {
+		int max[] = { 4,2,9,4,9,6,7,2,9,5 };
+		if (n > 10) return false;
+		if (n < 10) return true;
+		for (int i = n - 1; i >= 0; i--)
+		{
+			if (a[i] > max[9 - i]) return false;
+		}
+		return true;
+	}
+	int nextGreaterElement(int n) {
+		int num = 0;
+		int res = 0;
+		int a[20];
+		int len = 0;
+		while (n) {
+			a[len++] = n % 10;
+			n /= 10;
+		}
+		for (int i = 0; i < len; i++)
+		{
+			int side = 0, max = 0, site = 0;
+			int flag = 0;
+			for (int j = i - 1; j >= 0; j--)
+			{
+				if (j == i - 1) {
+					max = a[j] - a[i];
+					site = j;
+				}
+				side = a[j] - a[i];
+				if (side > 0 && side <= max) {
+					flag = 1;
+					site = j;
+					max = side;
+				}
+			}
+			if (flag) {
+				swap(a[site], a[i]);
+				for (int k = i - 1; k >= 0; k--)
+				{
+					max = a[k] - a[0];
+					site = 0;
+					for (int m = 0; m < k; m++)
+					{
+						side = a[k] - a[m];
+						if (side > 0 && side > max) {
+							max = side;
+							site = m;
+						}
+					}
+					if(max > 0) swap(a[site], a[k]);
+				}
+				if (isLimited(a, len)) {
+					i = len;
+					while (i > 0) {
+						res += a[--i];
+						res *= 10;
+					}
+					res /= 10;
+					return res;
+				}
+			}
+		}
+		return -1;
 	}
 };
