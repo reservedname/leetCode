@@ -651,7 +651,7 @@ public:
  * Output: -1
  *
  */
-class Solution {
+class Solution30 {
 public:
 	bool isLimited(int a[], int n) {
 		int max[] = { 4,2,9,4,9,6,7,2,9,5 };
@@ -717,5 +717,92 @@ public:
 			}
 		}
 		return -1;
+	}
+};
+
+//205. Isomorphic Strings
+class Solution31 {
+public:
+	bool isIsomorphic(string s, string t) {
+		int len = s.size();
+		char pre, aft;
+		for (int i = 0; i < len; i++)
+		{
+			if (s[i] == '0') continue;
+			aft = s[i];
+			pre = t[i];
+			for (int j = i; j < len; j++)
+			{
+				if (s[j] == aft) {
+					if (t[j] != pre || t[j] == '0') return false;
+					s[j] = '0';
+				}
+				if (t[j] == pre) {
+					t[j] = '0';
+				}
+			}
+		}
+		return s == t;
+	}
+};
+
+//141. Linked List Cycle
+struct ListNode {
+	int val;
+	ListNode *next;
+	ListNode(int x) : val(x), next(NULL) {}
+};
+class Solution32 {
+public:
+	bool hasCycle(ListNode *head) {
+		int spc = -6666666;
+		if (!head) return true;
+		ListNode *p = head->next;
+
+		while (p) {
+			if (p->val == spc) return true;
+			else p->val = spc;
+			p = p->next;
+		}
+		return false;
+	}
+};
+
+//142. Linked List Cycle II
+class Solution33 {
+public:
+	ListNode *detectCycle(ListNode *head) {
+		int spc = -6666666;
+		if (!head) return nullptr;
+		ListNode *p = head;
+
+		while (p) {
+			if (p->val == spc) {
+				p->val = 2;
+				p->next->val = 1;
+				return p;
+			}
+			else p->val = spc;
+			p = p->next;
+		}
+		return nullptr;
+	}
+};
+
+//400. Nth Digit
+class Solution34 {
+public:
+	int findNthDigit(int n) {
+		long long start = 1;	// 每个区间起始位置的数字
+		long long len = 9;	// 区间的长度
+		long long num_len = 1;// 区间数字的长度
+		while (n > len * num_len) {	//len*num_len为区间总长度
+			n -= len*num_len;
+			++num_len;
+			len *= 10;
+			start *= 10;
+		}
+		start += (n - 1)/ num_len;
+		return to_string(start)[(n - 1) % num_len] - '0';
 	}
 };
